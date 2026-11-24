@@ -1,5 +1,306 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
+/* Основные стили проекта. Mobile first, основная тема — тёмная. */
 
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  color: var(--text-color);
+  font-family: var(--main-font);
+  font-size: var(--main-font-size);
+  line-height: var(--main-line-height);
+  background-color: var(--bg-color);
+  background-image: var(--page-bg-image);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* ---------- Декоративные уголки (шапка + футер) ---------- */
+
+.decorated-zone {
+  position: relative;
+}
+
+.decorated-zone::before,
+.decorated-zone::after {
+  content: '';
+  position: absolute;
+  inline-size: 25px;
+  block-size: 25px;
+}
+
+.decorated-zone::before {
+  inset-block-start: var(--page-padding);
+  inset-inline-end: var(--page-padding);
+  border-block-start: 1px solid var(--decor-color);
+  border-inline-end: 1px solid var(--decor-color);
+}
+
+.decorated-zone::after {
+  inset-block-end: var(--page-padding);
+  inset-inline-start: var(--page-padding);
+  border-block-end: 1px solid var(--decor-color);
+  border-inline-start: 1px solid var(--decor-color);
+}
+
+/* ---------- Общий приём: текст на цветной подложке ---------- */
+
+.title-decor {
+  color: var(--title-decor-text-color);
+  font-weight: 700;
+  font-size: var(--main-font-size);
+  background-color: var(--title-decor-bg-color);
+}
+
+/* ---------- Шапка ---------- */
+
+.header {
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+  block-size: 100vh;
+  min-block-size: 668px;
+  padding: var(--page-padding);
+}
+
+.header__rec {
+  position: absolute;
+  inset-block-start: var(--page-padding);
+  inset-inline-end: calc(var(--page-padding) + 19px);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent-color);
+  text-transform: uppercase;
+}
+
+.header__rec::after {
+  content: '';
+  inline-size: 9px;
+  block-size: 9px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  box-shadow: 0 0 4px 2px var(--accent-color);
+}
+
+.header__theme-menu {
+  justify-self: end;
+  align-self: center;
+}
+
+.header__theme-menu-list {
+  display: grid;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  padding: 1.5px 13px;
+  border: 1px solid transparent;
+  color: var(--button-text-color);
+  text-transform: lowercase;
+  background-color: transparent;
+  cursor: pointer;
+  appearance: none;
+}
+
+.header__theme-menu-button:hover {
+  border-color: var(--button-hover-border-color);
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-block-end: 1px solid currentColor;
+}
+
+.header__theme-menu-button_active {
+  border-color: currentColor;
+  pointer-events: none;
+}
+
+.header__title {
+  align-self: center;
+  color: var(--title-color);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 0.825;
+  text-shadow: 4px 4px 0 var(--accent-color);
+}
+
+.header__text {
+  align-self: center;
+  justify-self: end;
+  inline-size: 100%;
+}
+
+/* ---------- Основной контент ---------- */
+
+.content {
+  display: grid;
+  gap: var(--section-gap);
+  margin-block: 40px;
+  padding-inline: var(--page-padding);
+}
+
+.section {
+  display: grid;
+  gap: 20px;
+}
+
+.section__title {
+  color: var(--section-title-color);
+  font-size: var(--main-font-size);
+  font-weight: 700;
+}
+
+.section__wrapper {
+  display: grid;
+  gap: 20px;
+}
+
+.section__cards {
+  display: grid;
+  gap: 20px;
+}
+
+.card {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.card__title_regular {
+  font-weight: 400;
+}
+
+.card__link {
+  text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.card__link:hover {
+  border-block-end: 1px solid currentColor;
+}
+
+.card__link:focus {
+  outline: none;
+}
+
+.card__link:focus-visible {
+  outline: 1px solid currentColor;
+}
+
+/* ---------- Галерея ---------- */
+
+.gallery {
+  display: grid;
+  gap: 10px;
+}
+
+.gallery__list {
+  display: grid;
+  gap: 10px;
+}
+
+.gallery__image {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Футер ---------- */
+
+.footer {
+  display: grid;
+  place-items: center;
+  block-size: 100vh;
+  min-block-size: 668px;
+  padding: var(--page-padding);
+}
+
+.footer__title {
+  color: var(--title-color);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 0.825;
+  text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+/* ---------- Планшет ---------- */
+
+@media (width >= 768px) {
+  :root {
+    --page-padding: 20px;
+  }
+
+  .header {
+    min-block-size: 1024px;
+  }
+
+  .header__title {
+    margin-inline-start: -20px;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__text {
+    inline-size: 50%;
+  }
+
+  .content {
+    margin-block: 60px;
+  }
+
+  .section_type_reasons,
+  .section_type_advices {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .gallery__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery__item_type_sunset {
+    grid-column: span 2;
+  }
+
+  .gallery__item_type_ice-cream {
+    grid-row: span 2;
+  }
+
+  .gallery__item_type_tape {
+    grid-row: span 2;
+  }
+
+  .gallery__item_type_street {
+    grid-column: span 2;
+  }
+
+  .footer {
+    min-block-size: 1024px;
+  }
+
+  .footer__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+}
+
+/* ---------- Десктоп ---------- */
+
+@media (width >= 1024px) {
+  .header {
+    min-block-size: 768px;
+  }
+
+  .header__theme-menu {
+    justify-self: center;
+    align-self: start;
+  }
+
+  .header__theme-menu-list {
+    grid-auto-flow: column;
+  }
+
+  .section_type_factors .section__title {
+    inline-size: calc((100% - 40px) / 3);
+  }
+
+  .section_type_factors .section__cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
