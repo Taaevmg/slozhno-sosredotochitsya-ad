@@ -1,14 +1,14 @@
 # Сложно сосредоточиться
-(https://github.com/Taaevmg/slozhno-sosredotochitsya-ad)
+
+[Ссылка на репозиторий](https://github.com/Taaevmg/slozhno-sosredotochitsya-ad)
+
 Адаптивный одностраничный сайт с автоматическим переключением светлой и тёмной тем в зависимости от системных настроек пользователя. Проектная работа курса «Вёрстка» Яндекс Практикума.
 
 ![Скриншот проекта](./images/cover-image-dark.png)
 
 ## 🚀 Демо
 
-[Открыть сайт →](https://your-username.github.io/slozhno-sosredotochitsya-ad/)
-
-> Замени `your-username` на свой логин GitHub после публикации.
+[Открыть сайт →](https://Taaevmg.github.io/slozhno-sosredotochitsya-ad/)
 
 ## ✨ Особенности
 
@@ -31,6 +31,4 @@
 | `@media` queries | Адаптивность и `prefers-color-scheme` |
 | `clamp()` | Плавная типографика |
 | `background-attachment: fixed` | Фиксированный фон |
-| JavaScript | Переключение тем |
-
-## 📁 Структура проекта
+| JavaScript | Переключение
